@@ -24,17 +24,5 @@ class Ticket(models.Model):
     appointment_start = models.DateTimeField(null=True)
     serviced_at = models.DateTimeField(null=True)
 
-    def save(self, *args, **kwargs):
-
-        super().save(*args, **kwargs)
-        channel_layer = get_channel_layer()
-        async_to_sync(channel_layer.group_send)(
-            'queue_s',
-            {
-                'type': 'add.ticket.to.queue',
-                'ticket': json.dumps(self.id)
-            }
-        )
-
     def __str__(self):
         return f'{self.operation.letter}{self.pk}'
