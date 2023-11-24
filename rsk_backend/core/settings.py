@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'apps.customers',
     'apps.filial',
     'apps.ochered',
+    'apps.specialists',
 ]
 
 MIDDLEWARE = [

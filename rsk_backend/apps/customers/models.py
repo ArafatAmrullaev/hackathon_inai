@@ -19,7 +19,7 @@ class Customer(models.Model):
     mkk = models.CharField(max_length=20)
     id_expire_date = models.DateField()
     id_recieved = models.DateField()
-    vip_status = models.BooleanField()
+    vip_status = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
