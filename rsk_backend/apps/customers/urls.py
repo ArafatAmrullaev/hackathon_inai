@@ -5,7 +5,7 @@ from django.urls import path, include
 from .views import CustomerViewSet
 
 router = DefaultRouter()
-router.register('customers', CustomerViewSet)
+router.register('', CustomerViewSet)
 
 urlpatterns = [
     path('', include(router.urls))
